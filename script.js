@@ -80,3 +80,24 @@ function generateDailyChallenge() {
     }
   });
 }
+function downloadWorksheet() {
+  const content = document.getElementById("worksheet").innerHTML;
+  const win = window.open("", "", "width=800,height=600");
+  win.document.write(`
+    <html>
+      <head>
+        <title>Math Worksheet</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; }
+          h2 { text-align: center; }
+          p { font-size: 18px; margin: 10px 0; }
+        </style>
+      </head>
+      <body>
+        ${content}
+      </body>
+    </html>
+  `);
+  win.document.close();
+  win.print();
+}
